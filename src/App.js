@@ -1,83 +1,54 @@
-import "./App.css";
+import React from "react";
 
+import { BrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Main from "./components/Main/Main";
 function App() {
-  return (
-    <div className="grid grid-cols-3 gap-4">
-      <div className="bg-gray-500">
-        <div className="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-          <input
-            id="bordered-radio-1"
-            type="radio"
-            value=""
-            name="bordered-radio"
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            htmlFor="bordered-radio-1"
-            className="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Default radio
-          </label>
-        </div>
-        <div className="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-          <input
-            id="bordered-radio-2"
-            type="radio"
-            value=""
-            name="bordered-radio"
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            htmlFor="bordered-radio-2"
-            className="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Checked state
-          </label>
-        </div>
-        <div className="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-          <input
-            id="bordered-radio-1"
-            type="radio"
-            value=""
-            name="bordered-radio"
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            htmlFor="bordered-radio-1"
-            className="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Default radio
-          </label>
-        </div>
-        <div className="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-          <input
-            id="bordered-radio-2"
-            type="radio"
-            value=""
-            name="bordered-radio"
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          <label
-            htmlFor="bordered-radio-2"
-            className="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Checked state
-          </label>
-        </div>
-      </div>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main />,
+      children: [
+        {
+          path: "/",
+          element: <></>,
+          loader: teamLoader,
+          children: [{}],
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
 
-
-
 /* 
+
+Get all quiz topics: https://openapi.programming-hero.com/api/quiz
+
+Get topic details by topic id: https://openapi.programming-hero.com/api/quiz/${id}
+
+Example: https://openapi.programming-hero.com/api/quiz/1
+
 
 1. favicon
 2. nav with different name icon
 3. below nav there should be some text while in home route  
-4. 
+4. Every topic should have a name, image and button
+5. Design has to be different from the one shown
+6. If clicked on the right/wrong answer it should be notified.
+7. There should be an 'eye' icon, when clicked it'll display the correct answer
+8. 404 Route, Blog route with three question answers  which are:
+
+a. Purpose of react-router.(own answer)
+b. How does react context work
+c. useRef() hook, how does it work.
+
+9. How many questions are there it should be displayed in a chart.
+
+
+
+
 
 */
