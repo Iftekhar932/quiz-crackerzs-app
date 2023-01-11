@@ -12,7 +12,6 @@ function App() {
         {
           path: "/",
           element: <></>,
-          loader: teamLoader,
           children: [{}],
         },
       ],
