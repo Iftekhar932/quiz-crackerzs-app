@@ -15,7 +15,6 @@ function App() {
           element: <Home></Home>,
           loader: async () =>
             fetch("https://openapi.programming-hero.com/api/quiz"),
-          // children: [{}],
         },
       ],
     },
