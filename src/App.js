@@ -34,7 +34,7 @@ Example: https://openapi.programming-hero.com/api/quiz/1
 
 
 1. favicon
-2. nav with different name icon
+2. nav with different name icon 🆗
 3. below nav there should be some text while in home route  
 4. Every topic should have a name, image and button
 5. Design has to be different from the one shown
@@ -46,9 +46,10 @@ a. Purpose of react-router.(own answer)
 b. How does react context work
 c. useRef() hook, how does it work.
 
-9. How many questions are there it should be displayed in a chart.
+9. How many questions are there it should be displayed in a chart using total property of category objects.
 
-
+10. There should be readme file consisting website name live link and
+ there should be THREE bullet points consisting description about what things I have done in this website
 
 
 

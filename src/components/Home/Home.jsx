@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import About from "../About/About";
 import Categories from "../Categories/Categories";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
 
   return (
     <div>
+      <About></About>
       <Categories quizzes={quizzes}></Categories>;
     </div>
   );
