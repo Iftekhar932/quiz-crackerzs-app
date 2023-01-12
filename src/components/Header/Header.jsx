@@ -42,7 +42,7 @@ const Header = () => {
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <NavLink
-                to="#"
+                to="/topics"
                 style={({ isActive }) => ({
                   color: isActive ? "#fff" : "#545e6f",
                   background: isActive ? "#7600dc" : "#f0f0f0",
@@ -55,7 +55,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="#"
+                to="/statistics"
                 style={({ isActive }) => ({
                   color: isActive ? "#fff" : "#545e6f",
                   background: isActive ? "#7600dc" : "#f0f0f0",
@@ -67,7 +67,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="#"
+                to="/blogs"
                 style={({ isActive }) => ({
                   color: isActive ? "#fff" : "#545e6f",
                   background: isActive ? "#7600dc" : "#f0f0f0",
