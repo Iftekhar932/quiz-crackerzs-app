@@ -12,20 +12,24 @@ import {
 
 const Graph = ({ quizData }) => {
   console.log("✨ 🌟  Graph  quizData", quizData);
-  const data = [
-    { name: "Page A", uv: 400, pv: 2400, amt: 2400 },
-    { name: "Page B", uv: 600, pv: 2423, amt: 2500 },
-    { name: "Page B", uv: 600, pv: 2423, amt: 2500 },
-    { name: "Page B", uv: 600, pv: 2423, amt: 2500 },
-  ];
+  const data = quizData.data.map((quiz) => {
+    const data2 = [
+      { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
+      { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
+      { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
+      { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
+    ];
+    return data2;
+  });
+
   return (
-    <BarChart width={730} height={250} data={quizData}>
+    <BarChart width={730} height={250} data={data}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="uv" fill="#82ca9d" />
+      <Bar dataKey="Quizzes" fill="#82ca9d" />
     </BarChart>
   );
 };
