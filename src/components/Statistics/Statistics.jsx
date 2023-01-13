@@ -1,9 +1,13 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import Graph from "../Graph/Graph";
 
 const Statistics = () => {
+  const quizData = useLoaderData();
+
   return (
     <div>
-      <h1>This is statistics</h1>
+      <Graph quizData={quizData}></Graph>
     </div>
   );
 };
