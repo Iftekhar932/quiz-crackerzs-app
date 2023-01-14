@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SingleCategoryCard = ({ quiz }) => {
   const { name, id, logo, total } = quiz;
@@ -18,8 +19,8 @@ const SingleCategoryCard = ({ quiz }) => {
           Here are the biggest enterprise technology acquisitions of 2021 so
           far, in reverse chronological order.
         </p>
-        <a
-          href="#"
+        <Link
+          to={`/quizzes/${id}`}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Read more
@@ -36,7 +37,7 @@ const SingleCategoryCard = ({ quiz }) => {
               clipRule="evenodd"
             ></path>
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import Blogs from "./components/Blogs/Blogs";
 import Home from "./components/Home/Home";
 import Main from "./components/Main/Main";
 import NotFound from "./components/NotFound/NotFound";
+import Quizzes from "./components/Quizzes/Quizzes";
 import Statistics from "./components/Statistics/Statistics";
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +42,10 @@ function App() {
           element: <NotFound></NotFound>,
         },
       ],
+    },
+    {
+      path: "/quizzes/:quizID",
+      element: <Quizzes />,
     },
   ]);
   return <RouterProvider router={router}></RouterProvider>;

@@ -5,11 +5,7 @@ import Graph from "../Graph/Graph";
 const Statistics = () => {
   const quizData = useLoaderData();
 
-  return (
-    <div>
-      <Graph quizData={quizData}></Graph>
-    </div>
-  );
+  return <div>{/* <Graph quizData={quizData}></Graph> */}</div>;
 };
 
 export default Statistics;
