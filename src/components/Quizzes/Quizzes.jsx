@@ -4,7 +4,6 @@ import SingleQuiz from "../SingleQuiz/SingleQuiz";
 
 const Quizzes = () => {
   const data = useLoaderData();
-  console.log(data);
   return (
     <div>
       {data.data.questions.map((quiz, index) => (
