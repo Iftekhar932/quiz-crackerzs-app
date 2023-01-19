@@ -6,8 +6,16 @@ const SingleQuiz = ({ quiz }) => {
 
   // answer validation and count correct answers
   let correctAnswerCount = 0;
-  const answerCollection = (e, index) => {
-    console.log(e, index);
+  let answers = [];
+  const answerCollection = (e) => {
+    const answer = e.currentTarget.value;
+
+    if (answer == correctAnswer) {
+      const collection = answers.includes(answer) ? true : answers.push(answer);
+      console.log(Boolean(collection));
+    }
+
+    console.log(answers, correctAnswerCount);
   };
 
   const validateOnSubmit = (e) => {
@@ -60,7 +68,7 @@ const SingleQuiz = ({ quiz }) => {
                   value={option}
                   name="list-radio"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                  onClick={(e) => answerCollection(e, index)}
+                  onClick={answerCollection}
                   required
                 />
                 <label
