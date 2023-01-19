@@ -1,30 +1,17 @@
 import React, { useState } from "react";
 
-const SingleQuiz = ({ quiz }) => {
-  const [isTrue, setIsTrue] = useState(false);
+const SingleQuiz = ({ quiz, answers, correctAnswerCount }) => {
+  const [isTrue, setIsTrue] = useState(false); // correct answer display
+
   const { question, correctAnswer, options } = quiz;
 
   // answer validation and count correct answers
-  let correctAnswerCount = 0;
-  let answers = [];
-  const answerCollection = (e) => {
-    const answer = e.currentTarget.value;
-
-    if (answer == correctAnswer) {
-      const collection = answers.includes(answer) ? true : answers.push(answer);
-      console.log(Boolean(collection));
+  const collectAndValidate = (e) => {
+    const answer = e.target.value;
+    if (answer == correctAnswer && !answers.includes(answer)) {
+      answers.push(answer);
     }
-
-    console.log(answers, correctAnswerCount);
-  };
-
-  const validateOnSubmit = (e) => {
-    const answerMatch = e.currentTarget.value == correctAnswer ? true : false;
-
-    correctAnswerCount = answerMatch
-      ? correctAnswerCount + 1
-      : correctAnswerCount;
-    console.log(answerMatch, correctAnswerCount);
+    console.log(answers.length, answers);
   };
 
   return (
@@ -52,7 +39,7 @@ const SingleQuiz = ({ quiz }) => {
         </span>
       </h3>
       <ul
-        onSubmit={validateOnSubmit}
+        // onSubmit={validateOnSubmit}🥵🥵🥵
         className="shadow-md  items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white"
       >
         {options.map((option, index) => {
@@ -68,7 +55,7 @@ const SingleQuiz = ({ quiz }) => {
                   value={option}
                   name="list-radio"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                  onClick={answerCollection}
+                  onClick={collectAndValidate}
                   required
                 />
                 <label

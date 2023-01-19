@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import SingleQuiz from "../SingleQuiz/SingleQuiz";
 
 const Quizzes = () => {
   const data = useLoaderData();
+  const [correctAnswerCount, setCorrectAnswerCount] = useState(0); //
+  const [answers, setAnswers] = useState([]); //
+  console.log("✨ 🌟  Quizzes  answers", answers);
   return (
     <div>
       {data.data.questions.map((quiz, index) => (
-        <SingleQuiz quiz={quiz} key={index}></SingleQuiz>
+        <SingleQuiz
+          answers={answers}
+          correctAnswerCount={correctAnswerCount}
+          quiz={quiz}
+          key={index}
+        ></SingleQuiz>
       ))}
     </div>
   );
