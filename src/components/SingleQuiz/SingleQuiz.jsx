@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
-const SingleQuiz = ({ quiz, answers, correctAnswerCount }) => {
+const SingleQuiz = ({ quiz, answers }) => {
   const [isTrue, setIsTrue] = useState(false); // correct answer display
-
   const { question, correctAnswer, options } = quiz;
 
   // answer validation and count correct answers
+  let answerCollection = answers;
   const collectAndValidate = (e) => {
     const answer = e.target.value;
-    if (answer == correctAnswer && !answers.includes(answer)) {
-      answers.push(answer);
-    }
-    console.log(answers.length, answers);
+    const collect =
+      answer == correctAnswer && !answers.includes(answer)
+        ? answers.push(answer)
+        : false;
   };
 
   return (
@@ -27,21 +27,18 @@ const SingleQuiz = ({ quiz, answers, correctAnswerCount }) => {
             alt="correct answer"
             height="20"
             width="20"
-            className="dark:bg-gray-300 rounded-xl"
+            className="dark:bg-gray-300 rounded-xl translate-y-1/2"
           />
         </span>
         <span
-          className={`bg-green-200 shadow-lg shadow-green-200 duration-500 ${
-            isTrue ? "opacity-100" : "opacity-0"
+          className={`bg-green-200 p-2 rounded-sm shadow-lg shadow-green-200 duration-500 ${
+            isTrue ? "opacity-100" : "opacity-0 -translate-y-1/2"
           }`}
         >
           {correctAnswer}
         </span>
       </h3>
-      <ul
-        // onSubmit={validateOnSubmit}🥵🥵🥵
-        className="shadow-md  items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-      >
+      <ul className="shadow-md  items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         {options.map((option, index) => {
           return (
             <li
@@ -68,58 +65,8 @@ const SingleQuiz = ({ quiz, answers, correctAnswerCount }) => {
             </li>
           );
         })}
-        {/*  <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-          <div className="flex items-center pl-3">
-            <input
-              id="horizontal-list-radio-id"
-              type="radio"
-              value=""
-              name="list-radio"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-            />
-            <label
-              htmlFor="horizontal-list-radio-id"
-              className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              State ID
-            </label>
-          </div>
-        </li>
-        <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-          <div className="flex items-center pl-3">
-            <input
-              id="horizontal-list-radio-millitary"
-              type="radio"
-              value=""
-              name="list-radio"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-            />
-            <label
-              htmlFor="horizontal-list-radio-millitary"
-              className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              US Millitary
-            </label>
-          </div>
-        </li>
-        <li className="w-full dark:border-gray-600">
-          <div className="flex items-center pl-3">
-            <input
-              id="horizontal-list-radio-passport"
-              type="radio"
-              value=""
-              name="list-radio"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-            />
-            <label
-              htmlFor="horizontal-list-radio-passport"
-              className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              US Passport
-            </label>
-          </div>
-        </li> */}
       </ul>
+      <span>{answerCollection.length}</span>
     </div>
   );
 };

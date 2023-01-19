@@ -6,7 +6,6 @@ const Quizzes = () => {
   const data = useLoaderData();
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0); //
   const [answers, setAnswers] = useState([]); //
-  console.log("✨ 🌟  Quizzes  answers", answers);
   return (
     <div>
       {data.data.questions.map((quiz, index) => (
