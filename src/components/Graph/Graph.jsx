@@ -11,7 +11,6 @@ import {
 } from "recharts";
 
 const Graph = ({ quizData }) => {
-  console.log("✨ 🌟  Graph  quizData", quizData);
   const data = quizData.data.map((quiz) => {
     const data2 = [
       { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
