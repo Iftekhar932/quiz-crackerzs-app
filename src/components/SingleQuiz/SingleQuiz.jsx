@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 
-const SingleQuiz = ({ quiz, answers }) => {
+const SingleQuiz = ({ quiz, answers, allAnswers }) => {
   const [isTrue, setIsTrue] = useState(false); // correct answer display
   const { question, correctAnswer, options } = quiz;
 
   // answer validation and count correct answers
   let answerCollection = answers;
+  let allAnswersCollection = allAnswers;
   const collectAndValidate = (e) => {
     const answer = e.target.value;
     const collect =
       answer == correctAnswer && !answers.includes(answer)
         ? answers.push(answer)
         : false;
+    const collectAllAnswers =
+      answer == correctAnswer && !allAnswers.includes(answer)
+        ? allAnswers.push(answer)
+        : allAnswers.push(false);
   };
 
   return (
@@ -66,7 +71,6 @@ const SingleQuiz = ({ quiz, answers }) => {
           );
         })}
       </ul>
-      <span>{answerCollection.length}</span>
     </div>
   );
 };
