@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 
-const SingleQuiz = ({ quiz, answers, allAnswers }) => {
+const SingleQuiz = ({ quiz, answers,setCorrectAnswerDisplay }) => {
   const [isTrue, setIsTrue] = useState(false); // correct answer display
   const { question, correctAnswer, options } = quiz;
 
   // answer validation and count correct answers
   let answerCollection = answers;
-  let allAnswersCollection = allAnswers;
   const collectAndValidate = (e) => {
     const answer = e.target.value;
     const collect =
       answer == correctAnswer && !answers.includes(answer)
         ? answers.push(answer)
         : false;
-    const collectAllAnswers =
-      answer == correctAnswer && !allAnswers.includes(answer)
-        ? allAnswers.push(answer)
-        : allAnswers.push(false);
   };
 
   return (
@@ -50,7 +45,7 @@ const SingleQuiz = ({ quiz, answers, allAnswers }) => {
               key={index}
               className=" w-full  border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600 "
             >
-              <div className="flex items-center pl-3">
+              <div className="flex items-center pl-3" onClick={()=> setCorrectAnswerDisplay(false)}>
                 <input
                   id="horizontal-list-radio-license"
                   type="radio"
@@ -58,6 +53,7 @@ const SingleQuiz = ({ quiz, answers, allAnswers }) => {
                   name="list-radio"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   onClick={collectAndValidate}
+                  
                   required
                 />
                 <label

@@ -1,10 +1,12 @@
 import React from "react";
 
-const ResultBox = ({ answers, allAnswers }) => {
+const ResultBox = ({ answers, correctAnswerDisplay }) => {
   return (
     <div
       id="toast-default"
-      className="flex items-center mx-auto mt-4 w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+      className={`${
+        correctAnswerDisplay ? "" : "hidden"
+      } flex items-center mx-auto mt-4 w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800`}
       role="alert"
     >
       {/* RESULT TOAST */}

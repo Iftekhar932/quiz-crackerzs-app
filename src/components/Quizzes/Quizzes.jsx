@@ -5,27 +5,30 @@ import SingleQuiz from "../SingleQuiz/SingleQuiz";
 
 const Quizzes = () => {
   const data = useLoaderData();
-  // const [correctAnswerCount, setCorrectAnswerCount] = useState(0); //
   const [answers, setAnswers] = useState([]); //
-  const [allAnswers, setAllAnswers] = useState([]); //
+  const [correctAnswerDisplay, setCorrectAnswerDisplay] = useState(false); //
   return (
     <div>
-      <ResultBox allAnswers={allAnswers} answers={answers}></ResultBox>
+      <ResultBox
+        correctAnswerDisplay={correctAnswerDisplay}
+        answers={answers}
+      ></ResultBox>
       {data.data.questions.map((quiz, index) => (
         <SingleQuiz
           answers={answers}
-          allAnswers={allAnswers}
+          setCorrectAnswerDisplay={setCorrectAnswerDisplay}
           // correctAnswerCount={correctAnswerCount}
           quiz={quiz}
           key={index}
         ></SingleQuiz>
       ))}
-      {/* <button
+      <button
         type="submit"
-        className=" bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"
+        className="mx-auto bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"
+        onClick={() => setCorrectAnswerDisplay(true)}
       >
         Submit
-      </button> */}
+      </button>
     </div>
   );
 };
