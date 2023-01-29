@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SingleQuiz = ({ quiz, answers,setCorrectAnswerDisplay }) => {
+const SingleQuiz = ({ quiz, answers, setCorrectAnswerDisplay }) => {
   const [isTrue, setIsTrue] = useState(false); // correct answer display
   const { question, correctAnswer, options } = quiz;
 
@@ -45,15 +45,17 @@ const SingleQuiz = ({ quiz, answers,setCorrectAnswerDisplay }) => {
               key={index}
               className=" w-full  border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600 "
             >
-              <div className="flex items-center pl-3" onClick={()=> setCorrectAnswerDisplay(false)}>
+              <div
+                className="flex items-center pl-3"
+                onClick={() => setCorrectAnswerDisplay(false)}
+              >
                 <input
                   id="horizontal-list-radio-license"
                   type="radio"
                   value={option}
                   name="list-radio"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  className="accent-green-200 w-4 h-4 text-green-200 bg-gray-100 border-gray-300 focus:ring-green-200 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   onClick={collectAndValidate}
-                  
                   required
                 />
                 <label
