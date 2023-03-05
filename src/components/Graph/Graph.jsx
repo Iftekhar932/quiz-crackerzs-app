@@ -21,6 +21,7 @@ const Graph = ({ quizData }) => {
         <CartesianGrid stroke="#ccc" />
         <XAxis datakey="name" />
         <YAxis />
+        <Tooltip cursor={{ stroke: "red", strokeWidth: 2 }} label="total" />
       </LineChart>
     </div>
   );
