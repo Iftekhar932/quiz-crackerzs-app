@@ -1,35 +1,28 @@
-import React from "react";
-
+import React, { PureComponent } from "react";
 import {
   CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  BarChart,
-  Legend,
-  Bar,
 } from "recharts";
 
 const Graph = ({ quizData }) => {
-  const data = quizData.data.map((quiz) => {
-    const data2 = [
-      { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
-      { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
-      { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
-      { name: quiz.name, Quizzes: quiz.count, amt: 2400 },
-    ];
-    return data2;
-  });
+  console.log("✨ 🌟  Graph  quizData:", quizData.data);
+  const data = quizData.data;
 
   return (
-    <BarChart width={730} height={250} data={data}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="Quizzes" fill="#82ca9d" />
-    </BarChart>
+    <div className="mx-auto mt-12 w-40">
+      <LineChart width={400} height={400} data={data}>
+        <Line type="monotone" dataKey="total" stroke="#8884d8" />
+        <CartesianGrid stroke="#ccc" />
+        <XAxis datakey="name" />
+        <YAxis />
+      </LineChart>
+    </div>
   );
 };
 
