@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ResultBox from "../ResultBox/ResultBox";
 import SingleQuiz from "../SingleQuiz/SingleQuiz";
+import Header from "../Header/Header.jsx";
 
 const Quizzes = () => {
   const data = useLoaderData();
@@ -9,6 +10,7 @@ const Quizzes = () => {
   const [correctAnswerDisplay, setCorrectAnswerDisplay] = useState(false); //
   return (
     <div>
+      <Header />
       <ResultBox
         correctAnswerDisplay={correctAnswerDisplay}
         answers={answers}

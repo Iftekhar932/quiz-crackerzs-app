@@ -5,17 +5,17 @@ const SingleQuiz = ({ quiz, answers, setCorrectAnswerDisplay }) => {
   const { question, correctAnswer, options } = quiz;
 
   // answer validation and count correct answers
-  let answerCollection = answers;
+  // let answerCollection = answers;
   const collectAndValidate = (e) => {
     const answer = e.target.value;
-    const collect =
-      answer == correctAnswer && !answers.includes(answer)
-        ? answers.push(answer)
-        : false;
+    // const collect =
+    return answer === correctAnswer && !answers.includes(answer)
+      ? answers.push(answer)
+      : false;
   };
 
   return (
-    <div className="w-9/12 mx-auto mb-12">
+    <div className="w-9/12 mx-auto mb-12 ">
       <h3 className="mb-4 mt-12  font-semibold text-gray-900 dark:text-white flex flex-row justify-between">
         {question}{" "}
         <span

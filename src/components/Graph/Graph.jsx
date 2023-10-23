@@ -11,7 +11,6 @@ import {
 } from "recharts";
 
 const Graph = ({ quizData }) => {
-  console.log("✨ 🌟  Graph  quizData:", quizData.data);
   const data = quizData.data;
 
   return (
