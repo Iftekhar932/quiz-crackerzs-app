@@ -18,6 +18,7 @@ const Header = () => {
             Dev-Quiz
           </span>
         </a>
+
         <button
           data-collapse-toggle="navbar-default"
           type="button"
@@ -41,6 +42,11 @@ const Header = () => {
             ></path>
           </svg>
         </button>
+
+        {/*  <div
+          className={`${"hidden"} w-full md:block md:w-auto`}
+          id="navbar-default"
+        > */}
         <div
           className={`${
             display == false && "hidden"
