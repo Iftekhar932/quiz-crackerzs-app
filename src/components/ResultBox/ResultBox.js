@@ -1,6 +1,11 @@
 import React from "react";
 
-const ResultBox = ({ answers, correctAnswerDisplay }) => {
+const ResultBox = ({
+  answers,
+  setAnswers,
+  correctAnswerDisplay,
+  setCorrectAnswerDisplay,
+}) => {
   return (
     <div
       id="toast-default"
@@ -26,12 +31,18 @@ const ResultBox = ({ answers, correctAnswerDisplay }) => {
         </svg>
         <span className="sr-only">Fire icon</span>
       </div>
-      <div className="ml-3 text-sm font-normal">{answers?.length}</div>
+      <div className="ml-3 text-sm font-normal">
+        {answers?.length} of the answers were correct.
+      </div>
       <button
         type="button"
         className="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
         data-dismiss-target="#toast-default"
         aria-label="Close"
+        onClick={() => {
+          setAnswers([]); // reset correct answers count
+          setCorrectAnswerDisplay(false); // hide the box that displays the correct answer (this whole div element which is used as toast)
+        }}
       >
         <span className="sr-only">Close</span>
         <svg

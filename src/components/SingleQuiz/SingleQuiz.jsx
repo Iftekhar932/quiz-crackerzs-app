@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 
-const SingleQuiz = ({ quiz, answers, setCorrectAnswerDisplay }) => {
-  const [isTrue, setIsTrue] = useState(false); // correct answer display
+const SingleQuiz = ({ quiz, answers, setCorrectAnswerDisplay, setAnswers }) => {
+  const [isTrue, setIsTrue] = useState(false); // correct answer display box is hidden if false
   const { question, correctAnswer, options } = quiz;
 
   // answer validation and count correct answers
-  // let answerCollection = answers;
+  /*   
+  if user's provided "answer" matches with "correctAnswer" it'll be recorded unless,(the second condition makes sure) if the answer is  already  not recorded(if users clicks twice) the answer won't be set twice
+  !test it 
+  */
   const collectAndValidate = (e) => {
     const answer = e.target.value;
-    // const collect =
-    return answer === correctAnswer && !answers.includes(answer)
+    if (answer === correctAnswer && !answers.includes(answer)) {
+      setAnswers([...answers, answer]); // Update the state with a new array
+    }
+    /* return answer === correctAnswer && !answers.includes(answer)
       ? answers.push(answer)
-      : false;
+      : false; */
   };
 
   return (
@@ -20,7 +25,7 @@ const SingleQuiz = ({ quiz, answers, setCorrectAnswerDisplay }) => {
         {question}{" "}
         <span
           className="hover:bg-cyan-100 rounded-2xl "
-          onClick={() => setIsTrue(!isTrue)}
+          onClick={() => setIsTrue(!isTrue)} // hide correct answer display box
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/709/709612.png"
@@ -38,6 +43,7 @@ const SingleQuiz = ({ quiz, answers, setCorrectAnswerDisplay }) => {
           {correctAnswer}
         </span>
       </h3>
+
       <ul className="shadow-md  items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         {options.map((option, index) => {
           return (
@@ -47,7 +53,7 @@ const SingleQuiz = ({ quiz, answers, setCorrectAnswerDisplay }) => {
             >
               <div
                 className="flex items-center pl-3"
-                onClick={() => setCorrectAnswerDisplay(false)}
+                onClick={() => setCorrectAnswerDisplay(false)} // individual question's answer will be hidden
               >
                 <input
                   id="horizontal-list-radio-license"

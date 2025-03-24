@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import logo from "./header-icon.png";
 
 const Header = () => {
-  const [display, setDisplay] = useState(false);
+  const [display, setDisplay] = useState(false); // to toggle display css property of navbar button
   return (
     <nav className="bg-white shadow-lg border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
@@ -43,10 +43,6 @@ const Header = () => {
           </svg>
         </button>
 
-        {/*  <div
-          className={`${"hidden"} w-full md:block md:w-auto`}
-          id="navbar-default"
-        > */}
         <div
           className={`${
             display == false && "hidden"
