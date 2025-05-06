@@ -7,16 +7,12 @@ const SingleQuiz = ({ quiz, answers, setCorrectAnswerDisplay, setAnswers }) => {
   // answer validation and count correct answers
   /*   
   if user's provided "answer" matches with "correctAnswer" it'll be recorded unless,(the second condition makes sure) if the answer is  already  not recorded(if users clicks twice) the answer won't be set twice
-  !test it 
   */
   const collectAndValidate = (e) => {
     const answer = e.target.value;
     if (answer === correctAnswer && !answers.includes(answer)) {
       setAnswers([...answers, answer]); // Update the state with a new array
     }
-    /* return answer === correctAnswer && !answers.includes(answer)
-      ? answers.push(answer)
-      : false; */
   };
 
   return (
